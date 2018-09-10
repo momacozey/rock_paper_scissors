@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+    
+</head>
+<html>
+<body>
+    <button onclick="game()">wanna play?</button>
+   
+
+    <p id="demo"></p>
+<script>
+function game(){
+const choice = prompt("rock, paper, or scissors")
+const playerSelection = choice.toLowerCase();
+const computerSelection = computerPlay()
+
+const play = playRound(playerSelection, computerSelection)
+
+function playRound(playerSelection, computerSelection){
+    //Player chose rock
+    if (playerSelection == "rock" && computerSelection == "paper"){
+        console.log("You lose paper beats rock!");
+        document.getElementById("demo").innerHTML = "You lose paper beats rock!";
+    }
+    if (playerSelection == "rock" && computerSelection == "scissors"){
+        console.log("You win rock beats scissors!");
+        document.getElementById("demo").innerHTML = "You win rock beats scissors!";
+    } 
+    if (playerSelection == "rock" && computerSelection == "rock"){
+        console.log("You tie trying to beat each other with rocks....");
+        document.getElementById("demo").innerHTML = "You tie trying to beat each other with rocks....";
+    }
+
+    // Player chose Paper
+    if (playerSelection == "paper" && computerSelection == "paper"){
+        console.log("You tie with some nasty paper cuts");
+        document.getElementById("demo").innerHTML = "You tie with some nasty paper cuts";
+    }
+    if (playerSelection == "paper" && computerSelection == "scissors"){
+        console.log("You lose scissors beat paper");
+        document.getElementById("demo").innerHTML = "You lose scissors beat paper";
+    } 
+    if (playerSelection == "paper" && computerSelection == "rock"){
+        console.log("you win rock beats paper");
+        document.getElementById("demo").innerHTML = "you win rock beats paper";
+    }
+
+    //Player chose scissors
+    if (playerSelection == "scissors" && computerSelection == "paper"){
+        console.log("You win scissors beats paper!");
+        document.getElementById("demo").innerHTML = "You win scissors beats paper!";
+    }
+    if (playerSelection == "scissors" && computerSelection == "scissors"){
+        console.log("You tie... at least you took a stab at it");
+        document.getElementById("demo").innerHTML = "You tie... at least you took a stab at it";
+    } 
+    if (playerSelection == "scissor" && computerSelection == "rock"){
+        console.log("You lose rock beats scissors");
+        document.getElementById("demo").innerHTML = "You lose rock beats scissors";
+    }
+    //Player made an invalid choice
+    if (playerSelection != "scissors" && playerSelection != "rock" && playerSelection != "paper"){
+        console.log("I dont think you can use that here...");
+        document.getElementById("demo").innerHTML = "I dont think you can use that here...";
+    }
+
+    }
+}
+
+
+
+
+
+
+    function computerPlay(){
+        let choice = Math.random();
+            if (choice <= 0.33){
+                choice = "rock";
+                return choice;
+           }
+            if (choice <= 0.67) {
+                choice = "paper";
+                return choice;
+            } else {
+                choice = "scissors";
+                return choice;
+            }
+    }
+
+    function rock(){
+        let player = "rock"
+        return player
+    }
+    function paper(){
+         let player = "paper"
+         return player
+     }
+
+    function scissors() {
+        let player = "scissors"
+        return player
+    }
+    
+     //this is the closing bracket for all func
+</script>
+</body>
+</html>
