@@ -8,100 +8,86 @@
    
 
     <p id="demo"></p>
+    <p id="pc"></p>
+    <p id="end"></p>
 <script>
-function game(){
-const choice = prompt("rock, paper, or scissors")
-const playerSelection = choice.toLowerCase();
-const computerSelection = computerPlay()
 
-const play = playRound(playerSelection, computerSelection)
+
+//const computerSelection = computerPlay()
+
+
+
 
 function playRound(playerSelection, computerSelection){
-    //Player chose rock
-    if (playerSelection == "rock" && computerSelection == "paper"){
-        console.log("You lose paper beats rock!");
-        document.getElementById("demo").innerHTML = "You lose paper beats rock!";
+    if (playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "paper" && computerSelection == "rock" || playerSelection == "scissors" && computerSelection == "paper"){
+        document.getElementById("demo").innerHTML = "You won!!!";
+        console.log(computerSelection);
+        return "win";
     }
-    if (playerSelection == "rock" && computerSelection == "scissors"){
-        console.log("You win rock beats scissors!");
-        document.getElementById("demo").innerHTML = "You win rock beats scissors!";
-    } 
-    if (playerSelection == "rock" && computerSelection == "rock"){
-        console.log("You tie trying to beat each other with rocks....");
-        document.getElementById("demo").innerHTML = "You tie trying to beat each other with rocks....";
-    }
-
-    // Player chose Paper
-    if (playerSelection == "paper" && computerSelection == "paper"){
-        console.log("You tie with some nasty paper cuts");
-        document.getElementById("demo").innerHTML = "You tie with some nasty paper cuts";
-    }
-    if (playerSelection == "paper" && computerSelection == "scissors"){
-        console.log("You lose scissors beat paper");
-        document.getElementById("demo").innerHTML = "You lose scissors beat paper";
-    } 
-    if (playerSelection == "paper" && computerSelection == "rock"){
-        console.log("you win rock beats paper");
-        document.getElementById("demo").innerHTML = "you win rock beats paper";
-    }
-
-    //Player chose scissors
-    if (playerSelection == "scissors" && computerSelection == "paper"){
-        console.log("You win scissors beats paper!");
-        document.getElementById("demo").innerHTML = "You win scissors beats paper!";
-    }
-    if (playerSelection == "scissors" && computerSelection == "scissors"){
-        console.log("You tie... at least you took a stab at it");
-        document.getElementById("demo").innerHTML = "You tie... at least you took a stab at it";
-    } 
-    if (playerSelection == "scissor" && computerSelection == "rock"){
-        console.log("You lose rock beats scissors");
-        document.getElementById("demo").innerHTML = "You lose rock beats scissors";
-    }
-    //Player made an invalid choice
-    if (playerSelection != "scissors" && playerSelection != "rock" && playerSelection != "paper"){
+     else if (playerSelection == computerSelection){
+        document.getElementById("demo").innerHTML = "It's a draw!";
+        console.log(computerSelection);
+        return "draw";
+    } else if (playerSelection != "scissors" && playerSelection != "rock" && playerSelection != "paper"){
         console.log("I dont think you can use that here...");
         document.getElementById("demo").innerHTML = "I dont think you can use that here...";
-    }
-
+        return "error";
+    } else {
+        document.getElementById("demo").innerHTML = "loss";
+        console.log(computerSelection);
+        return "loss";
     }
 }
 
-
-
-
-
-
     function computerPlay(){
-        let choice = Math.random();
-            if (choice <= 0.33){
+        let test = Math.floor(Math.random() * 3);
+        let choice = test
+            if (choice == 1){
                 choice = "rock";
-                return choice;
            }
-            if (choice <= 0.67) {
-                choice = "paper";
-                return choice;
-            } else {
-                choice = "scissors";
-                return choice;
+            else if (choice == 2) {
+                choice = "paper";              
+            } else if (choice == 0){
+                choice = "scissors";               
             }
+            console.log(test)
+            return choice;
     }
+   
 
-    function rock(){
-        let player = "rock"
-        return player
-    }
-    function paper(){
-         let player = "paper"
-         return player
-     }
+   function game(){
+    let win = 0 
+    let loss = 0
+    let draw = 0
 
-    function scissors() {
-        let player = "scissors"
-        return player
+    for (let i =0; i < 5; i++){
+        let result = playRound(prompt("rock, paper, or scissors?"),computerPlay());
+        if (result == "win"){
+            ++win;
+        } else if (result == "draw"){
+            ++draw;
+        } else if (result == "loss"){
+            ++loss
+        } else {
+            alert("YOU JUST THREW A ROUND AWAY. YOU CANT USE THAT HERE");
+        }
+        document.getElementById("pc").innerHTML = result + " " + win + " " + draw + " " + loss
     }
-    
-     //this is the closing bracket for all func
+   
+   if (win > loss){
+       document.getElementById("end").innerHTML = "YOU HAVE BEAT THE MACHINE";
+       return "you won";
+   } else if (loss > win){
+       document.getElementById("end").innerHTML = "You seem to have lost....";
+       return "you lose";
+   } else if (loss == 0 && win == 0 && draw == 0){
+       document.getElementById("end").innerHTML = "well you broke it....";
+       return "you broke it...."
+   }else {
+       document.getElementById("end").innerHTML = "It's a tie game!";
+       return "tie";
+   }
+   }
 </script>
 </body>
 </html>
