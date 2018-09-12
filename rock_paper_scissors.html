@@ -11,14 +11,11 @@
     <p id="pc"></p>
     <p id="end"></p>
 <script>
+   
 
+   function game(){
 
-//const computerSelection = computerPlay()
-
-
-
-
-function playRound(playerSelection, computerSelection){
+    function playRound(playerSelection, computerSelection){
     if (playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "paper" && computerSelection == "rock" || playerSelection == "scissors" && computerSelection == "paper"){
         document.getElementById("demo").innerHTML = "You won!!!";
         console.log(computerSelection);
@@ -33,34 +30,30 @@ function playRound(playerSelection, computerSelection){
         document.getElementById("demo").innerHTML = "I dont think you can use that here...";
         return "error";
     } else {
-        document.getElementById("demo").innerHTML = "loss";
+        document.getElementById("demo").innerHTML = "loss :(";
         console.log(computerSelection);
         return "loss";
     }
 }
 
     function computerPlay(){
-        let test = Math.floor(Math.random() * 3);
-        let choice = test
-            if (choice == 1){
-                choice = "rock";
+        let computerChoice = Math.floor(Math.random() * 3);
+            if (computerChoice == 1){
+                computerChoice = "rock";
            }
-            else if (choice == 2) {
-                choice = "paper";              
-            } else if (choice == 0){
-                choice = "scissors";               
+            else if (computerChoice == 2) {
+                computerChoice = "paper";              
+            } else if (computerChoice == 0){
+                computerChoice = "scissors";               
             }
-            console.log(test)
-            return choice;
+            return computerChoice;
     }
-   
 
-   function game(){
     let win = 0 
     let loss = 0
     let draw = 0
 
-    for (let i =0; i < 5; i++){
+    for (let round =0; round < 5; round++){
         let result = playRound(prompt("rock, paper, or scissors?"),computerPlay());
         if (result == "win"){
             ++win;
@@ -71,7 +64,7 @@ function playRound(playerSelection, computerSelection){
         } else {
             alert("YOU JUST THREW A ROUND AWAY. YOU CANT USE THAT HERE");
         }
-        document.getElementById("pc").innerHTML = result + " " + win + " " + draw + " " + loss
+        document.getElementById("pc").innerHTML = result + " " + win +  " " + draw + " " + loss
     }
    
    if (win > loss){

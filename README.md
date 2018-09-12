@@ -8,3 +8,5 @@ upon doing this project i have realizd where my weakness and knowledge need impr
 i plan on adding a main screen with three buttons to choose from at a later date but for today i just want the program up and running while keeping score.
 
 upon many hours i have seen ways to cleaning up my code and i had to research how to keep count in game.  having zero background in any coding making my first working app feels like a huge success. I am tho very saddened that i had to look so much stuff from other peoples coding but i guess we all have to start somewhere to understand.  i plan to add a front end visual to this game here soon.  that will be a new test with making buttons equal my user input.
+
+traveling further into the odin project i realised how i should name my code a little better so that way comments are nearly not needed.  i have revised some of my already used code.
