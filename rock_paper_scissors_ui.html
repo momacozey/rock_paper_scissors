@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <script type="text/javascript" src="./script.js"></script>
+    <link rel="stylesheet" href="./stylesheet.css">
+</head>
+<html>
+<body>
+<h1 class = "title ">WELCOME TO ROCK PAPER SCISSORS!!!</h1>
+        
+    <p id = "demo">Click your pokemon to play!</p>
+
+
+
+   <div id="choices">
+    <button onclick = "startRound(this.id)" id="bulbasaur" class="choiceButton"><img class="choice" src="img/bulbasaur.png"/></button>
+    <button onclick = "startRound(this.id)" id="charmander" class="choiceButton"><img class="choice" src="img/charmander.png"></button>
+    <button onclick = "startRound(this.id)" id="squirtle" class="choiceButton"><img class="choice" src="img/squirtle.png"></button>
+   </div>
+
+
+
+   
+
+
+<div class = "scoreBoxes">
+   <div class="userScoreBox">
+    <p>Your points.</p>
+    <h3 id="userScore" class = "score"> 0 </h3>
+   </div>
+
+
+
+   <div class="drawScoreBox">
+    <p>Draws.</p>
+    <h3 id="draw" class = "score"> 0 </h3>
+   </div>
+
+
+  
+   <div class="computerScoreBox">
+        <p>Computer points.</p>
+        <h3 id="computerScore" class = "score"> 0 </h3>
+   </div>
+   </div>
+
+   <div class ="resetButton">
+        <p id="reset">MEWTWO WILL ALWAYS WIPE THE BOARD!!!</p>
+        <div>
+       <button onclick = "reset()"><img class ="resetButtonImg" src="img/mewtwo.png"/></button>
+    </div>    
+    </div>
+
+</body>
+</html>
